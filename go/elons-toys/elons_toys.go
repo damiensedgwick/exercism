@@ -3,17 +3,20 @@ package elon
 import "fmt"
 
 func (c *Car) Drive() {
-	c.battery -= c.batteryDrain
-	c.distance += c.speed
+	if c.battery >= c.batteryDrain {
+		c.distance += c.speed
+		c.battery -= c.batteryDrain
+	}
 }
 
 func (c *Car) DisplayDistance() string {
-	return fmt.Sprintf("Driven %i meters", c.speed)
+	return fmt.Sprintf("Driven %d meters", c.distance)
 }
 
 func (c *Car) DisplayBattery() string {
-	battery := c.battery - c.batteryDrain
-	return fmt.Sprintf("Battery at %i%", battery)
+	return fmt.Sprintf("Battery at %d%%", c.battery)
 }
 
-func (c *Car) CanFinish(distance int) bool {}
+func (c *Car) CanFinish(distance int) bool {
+	return c.battery/c.batteryDrain*c.speed >= distance
+}
