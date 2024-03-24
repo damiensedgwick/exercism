@@ -38,6 +38,12 @@ func (r *Resident) Delete() {
 }
 
 // Count counts all residents that have provided the required information.
-func Count(residents []*Resident) int {
-	panic("Please implement Count.")
+func Count(residents []*Resident) (count int) {
+	for _, r := range residents {
+		if r.HasRequiredInfo() {
+			count += 1
+		}
+	}
+
+	return count
 }
