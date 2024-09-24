@@ -2,19 +2,21 @@ package twofer
 
 import "strings"
 
-// ShareWith should have a comment documenting it.
+// ShareWith takes a name as a string parameter and returns a string that
+// represents the phrase "One for you, one for me." or "One for name, one for me."
+// If the name parameter is an empty string, it will use "you" instead.
 func ShareWith(name string) string {
-	var s strings.Builder
+	var sb strings.Builder
 
-	s.WriteString("One for ")
+	sb.WriteString("One for ")
 
-	if len(name) == 0 {
-		s.WriteString("you, ")
+	if name == "" {
+		sb.WriteString("you, ")
 	} else {
-		s.WriteString(name + ", ")
+		sb.WriteString(name + ", ")
 	}
 
-	s.WriteString("one for me.")
+	sb.WriteString("one for me.")
 
-	return s.String()
+	return sb.String()
 }
