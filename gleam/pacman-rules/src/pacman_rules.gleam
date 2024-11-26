@@ -15,5 +15,5 @@ pub fn win(
   power_pellet_active: Bool,
   touching_ghost: Bool,
 ) -> Bool {
-  has_eaten_all_dots && { !touching_ghost || power_pellet_active }
+  has_eaten_all_dots && !lose(power_pellet_active, touching_ghost)
 }
