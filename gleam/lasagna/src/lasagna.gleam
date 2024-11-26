@@ -5,9 +5,7 @@ pub fn expected_minutes_in_oven() -> Int {
 
 // Please define the remaining_minutes_in_oven function
 pub fn remaining_minutes_in_oven(minutes_in: Int) -> Int {
-  let cooking_time: Int = expected_minutes_in_oven()
-
-  cooking_time - minutes_in
+  expected_minutes_in_oven() - minutes_in
 }
 
 // Please define the preparation_time_in_minutes function
