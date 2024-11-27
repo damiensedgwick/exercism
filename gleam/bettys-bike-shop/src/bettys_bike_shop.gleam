@@ -7,7 +7,5 @@ pub fn pence_to_pounds(pence: Int) -> Float {
 }
 
 pub fn pounds_to_string(pounds: Float) -> String {
-  let symbol: String = "£"
-  let pounds_str: String = f.to_string(pounds)
-  s.concat([symbol, pounds_str])
+  s.concat(["£", f.to_string(pounds)])
 }
